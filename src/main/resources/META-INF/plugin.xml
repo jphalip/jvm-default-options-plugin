@@ -1,0 +1,69 @@
+<idea-plugin>
+    <id>com.julienphalip.jvmdefaultoptions</id>
+
+    <name>JVM Default Options</name>
+
+    <version>1.0.0</version>
+
+    <vendor email="jphalip@gmail.com" url="https://github.com/jphalip/jvm-default-options-plugin">Julien Phalip</vendor>
+
+    <description><![CDATA[
+    <p>
+        This plugin allows you to set default values for JVM options and environment variables
+        when running Java-based configurations. The values can be scoped both globally and to a
+        specific project.
+    </p>
+    <p>
+        To set the default values, open the
+        <code style="display: inline;">Build, Execution, Deployment &rarr; JVM Default Options</code> panel
+        in the IDE settings.
+    </p>
+    <p>
+        You can set two types of default values:
+        <ul>
+            <li>
+                VM options, for example:<br><br>
+                <code style="display: inline;">-Dmy.favorite.property=abcd -Danother.property=helloworld</code></li>
+            <li>
+                Environment variables, for example:<br><br>
+                <code style="display: inline;">MY_VAR=abcd MY_OTHER_VAR=1234</code>
+            </li>
+        </ul>
+    </p>
+    <p>
+        Values set in a run configuration take precedence over both global and project default
+        values. Project default values take precedence over global default values.
+    </p>
+  ]]></description>
+
+    <depends>com.intellij.modules.java</depends>
+
+    <resource-bundle>messages.Bundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <groupConfigurable
+           id="build.jvmdefaultoptions"
+           parentId="build"
+           displayNameKey="configurable.group.build.jvmdefaultoptions.display.name"
+           descriptionKey="configurable.group.build.jvmdefaultoptions.description"
+           bundle="messages.Bundle"
+        />
+        <applicationConfigurable
+            groupId="build.jvmdefaultoptions"
+            instance="com.julienphalip.jvmdefaultoptions.settings.GlobalSettings"
+            displayName="Global Options"
+            nonDefaultProject="true"/>
+        <projectConfigurable
+            groupId="build.jvmdefaultoptions"
+            instance="com.julienphalip.jvmdefaultoptions.settings.ProjectSettings"
+            displayName="Project Options"
+            nonDefaultProject="true"/>
+        <java.programPatcher implementation="com.julienphalip.jvmdefaultoptions.ProgramPatcher"/>
+    </extensions>
+
+    <change-notes><![CDATA[
+        <h2>1.0.0</h2>
+        <p>Initial release</p
+]]></change-notes>
+
+</idea-plugin>
