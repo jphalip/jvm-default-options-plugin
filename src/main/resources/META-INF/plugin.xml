@@ -15,8 +15,8 @@
     </p>
     <p>
         To set the default values, open the
-        <code style="display: inline;">Build, Execution, Deployment &rarr; JVM Default Options</code> panel
-        in the IDE settings.
+        <code style="display: inline;">Build, Execution, Deployment</code> →
+        <code style="display: inline;">JVM Default Options</code> panel in the IDE settings.
     </p>
     <p>
         You can set two types of default values:

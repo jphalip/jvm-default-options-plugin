@@ -2,7 +2,7 @@ This IntelliJ plugin allows you to set default values for JVM options and enviro
 when running Java-based configurations. The values can be scoped both globally and to a
 specific project.
 
-To set the default values, open the `Build, Execution, Deployment &rarr; JVM Default Options` panel
+To set the default values, open the `Build, Execution, Deployment` → `JVM Default Options` panel
 in the IDE settings.
 
 You can set two types of default values:
