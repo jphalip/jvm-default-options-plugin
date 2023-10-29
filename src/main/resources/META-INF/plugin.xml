@@ -3,7 +3,7 @@
 
     <name>JVM Default Options</name>
 
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <vendor email="jphalip@gmail.com" url="https://github.com/jphalip/jvm-default-options-plugin">Julien Phalip</vendor>
 
@@ -62,6 +62,9 @@
     </extensions>
 
     <change-notes><![CDATA[
+        <h2>1.0.1</h2>
+        <p>Fixed plugin metadata</p
+
         <h2>1.0.0</h2>
         <p>Initial release</p
 ]]></change-notes>

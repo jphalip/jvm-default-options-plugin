@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("org.jetbrains.intellij") version "1.13.0"
+    id("org.jetbrains.intellij") version "1.16.0"
     id("com.diffplug.spotless") version "6.15.0"
 }
 
@@ -31,11 +31,6 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "11"
         targetCompatibility = "11"
-    }
-
-    patchPluginXml {
-        sinceBuild.set("221")
-        untilBuild.set("231.*")
     }
 
     signPlugin {
