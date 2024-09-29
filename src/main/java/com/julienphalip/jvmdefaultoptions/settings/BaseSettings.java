@@ -313,7 +313,9 @@ public abstract class BaseSettings implements SearchableConfigurable {
                         false));
     }
 
-    /** @noinspection ALL */
+    /**
+     * @noinspection ALL
+     */
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }

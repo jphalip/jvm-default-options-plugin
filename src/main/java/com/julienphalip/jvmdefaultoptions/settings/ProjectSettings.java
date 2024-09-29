@@ -277,7 +277,9 @@ public class ProjectSettings extends BaseSettings {
                         false));
     }
 
-    /** @noinspection ALL */
+    /**
+     * @noinspection ALL
+     */
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }

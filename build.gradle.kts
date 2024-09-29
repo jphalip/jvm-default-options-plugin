@@ -1,8 +1,9 @@
 plugins {
     id("java")
     kotlin("jvm") version "1.9.23"
-    id("org.jetbrains.intellij") version "1.17.3"
+    id("org.jetbrains.intellij") version "1.17.4"
     id("com.diffplug.spotless") version "6.25.0"
+    id("pmd")
 }
 
 repositories {
@@ -10,9 +11,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation("com.google.guava:guava:33.2.1-jre")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
+    testImplementation("com.google.guava:guava:33.3.1-jre")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.1")
 }
 
 spotless {
@@ -22,6 +23,21 @@ spotless {
             .aosp()
             .reflowLongStrings()
             .groupArtifact("com.google.googlejavaformat:google-java-format")
+    }
+}
+
+pmd {
+    isConsoleOutput = true
+    toolVersion = "6.46.0"
+    rulesMinimumPriority.set(5)
+    ruleSetFiles = rootProject.files("pmd-config.xml")
+    ruleSets = emptyList()
+    isIgnoreFailures = false
+}
+
+tasks.named<Pmd>("pmdMain") {
+    reports {
+        html.required.set(true)
     }
 }
 

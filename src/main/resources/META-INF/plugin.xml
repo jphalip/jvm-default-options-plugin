@@ -3,9 +3,9 @@
 
     <name>JVM Default Options</name>
 
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
-    <idea-version since-build="221.6008" until-build="241.*" />
+    <idea-version since-build="221.6008" />
 
     <vendor email="jphalip@gmail.com" url="https://github.com/jphalip/jvm-default-options-plugin">Julien Phalip</vendor>
 
@@ -64,6 +64,9 @@
     </extensions>
 
     <change-notes><![CDATA[
+        <h2>1.0.3</h2>
+        <p>Upgraded some dependencies</p>
+
         <h2>1.0.2</h2>
         <p>Upgraded some dependencies</p>
 

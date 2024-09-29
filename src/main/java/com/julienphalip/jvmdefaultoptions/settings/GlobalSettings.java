@@ -275,7 +275,9 @@ public class GlobalSettings extends BaseSettings {
                         false));
     }
 
-    /** @noinspection ALL */
+    /**
+     * @noinspection ALL
+     */
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
