@@ -1,3 +1,4 @@
+<!-- Plugin description -->
 This IntelliJ plugin allows you to set default values for JVM options and environment variables
 when running Java-based configurations. The values can be scoped both globally and to a
 specific project.
@@ -19,3 +20,4 @@ You can set two types of default values:
 
 Values set in a run configuration take precedence over both global and project default
 values. Project default values take precedence over global default values.
+<!-- Plugin description end -->

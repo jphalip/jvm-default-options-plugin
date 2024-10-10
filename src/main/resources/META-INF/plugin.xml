@@ -3,40 +3,7 @@
 
     <name>JVM Default Options</name>
 
-    <version>1.0.3</version>
-
-    <idea-version since-build="221.6008" />
-
     <vendor email="jphalip@gmail.com" url="https://github.com/jphalip/jvm-default-options-plugin">Julien Phalip</vendor>
-
-    <description><![CDATA[
-    <p>
-        This plugin allows you to set default values for JVM options and environment variables
-        when running Java-based configurations. The values can be scoped both globally and to a
-        specific project.
-    </p>
-    <p>
-        To set the default values, open the
-        <code style="display: inline;">Build, Execution, Deployment</code> →
-        <code style="display: inline;">JVM Default Options</code> panel in the IDE settings.
-    </p>
-    <p>
-        You can set two types of default values:
-        <ul>
-            <li>
-                VM options, for example:<br><br>
-                <code style="display: inline;">-Dmy.favorite.property=abcd -Danother.property=helloworld</code></li>
-            <li>
-                Environment variables, for example:<br><br>
-                <code style="display: inline;">MY_VAR=abcd MY_OTHER_VAR=1234</code>
-            </li>
-        </ul>
-    </p>
-    <p>
-        Values set in a run configuration take precedence over both global and project default
-        values. Project default values take precedence over global default values.
-    </p>
-  ]]></description>
 
     <depends>com.intellij.modules.java</depends>
 
@@ -62,19 +29,5 @@
             nonDefaultProject="true"/>
         <java.programPatcher implementation="com.julienphalip.jvmdefaultoptions.ProgramPatcher"/>
     </extensions>
-
-    <change-notes><![CDATA[
-        <h2>1.0.3</h2>
-        <p>Upgraded some dependencies</p>
-
-        <h2>1.0.2</h2>
-        <p>Upgraded some dependencies</p>
-
-        <h2>1.0.1</h2>
-        <p>Fixed plugin metadata</p>
-
-        <h2>1.0.0</h2>
-        <p>Initial release</p
-]]></change-notes>
 
 </idea-plugin>
