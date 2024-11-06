@@ -1,0 +1,5 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="org.jetbrains.plugins.gradle">
+        <executionEnvironmentProvider implementation="com.julienphalip.jvmdefaultoptions.GradlePatcher" order="first"/>
+    </extensions>
+</idea-plugin>

@@ -1,5 +1,7 @@
 ## [Next]
 
+Added support for Gradle run configurations
+
 ## 1.0.4
 
 Upgraded IntelliJ Gradle plugin

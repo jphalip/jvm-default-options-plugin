@@ -1,11 +1,6 @@
 <idea-plugin>
-    <id>com.julienphalip.jvmdefaultoptions</id>
 
-    <name>JVM Default Options</name>
-
-    <vendor email="jphalip@gmail.com" url="https://github.com/jphalip/jvm-default-options-plugin">Julien Phalip</vendor>
-
-    <depends>com.intellij.modules.java</depends>
+    <vendor email="jphalip@gmail.com" url="https://github.com/jphalip">Julien Phalip</vendor>
 
     <resource-bundle>messages.Bundle</resource-bundle>
 
@@ -27,7 +22,9 @@
             instance="com.julienphalip.jvmdefaultoptions.settings.ProjectSettings"
             displayName="Project Options"
             nonDefaultProject="true"/>
-        <java.programPatcher implementation="com.julienphalip.jvmdefaultoptions.ProgramPatcher"/>
+        <java.programPatcher implementation="com.julienphalip.jvmdefaultoptions.JavaPatcher"/>
     </extensions>
+
+    <depends optional="true" config-file="gradle.xml">com.intellij.gradle</depends>
 
 </idea-plugin>

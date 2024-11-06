@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import org.junit.Test;
 
-public class ProgramPatcherTest extends BasePlatformTestCase {
+public class JavaPatcherTest extends BasePlatformTestCase {
 
     @Test
     public void testEnabled() {
@@ -35,7 +35,7 @@ public class ProgramPatcherTest extends BasePlatformTestCase {
         params.addEnv("DDD", "red");
         params.addEnv("EEE", "pink");
         // Do the patching
-        new ProgramPatcher().patchJavaParameters(null, configuration, params);
+        new JavaPatcher().patchJavaParameters(null, configuration, params);
         // Check the results
         assertEquals(
                 "-Daaa=purple -Dbbb=orange -Dccc=turquoise -Dccc=white -Dddd=magenta -Daaa=green"
@@ -68,7 +68,7 @@ public class ProgramPatcherTest extends BasePlatformTestCase {
         params.addEnv("DDD", "red");
         params.addEnv("EEE", "pink");
         // Do the patching
-        new ProgramPatcher().patchJavaParameters(null, configuration, params);
+        new JavaPatcher().patchJavaParameters(null, configuration, params);
         // Check the results
         assertEquals(
                 "-Daaa=purple -Dbbb=orange -Dccc=turquoise -Daaa=green -Dddd=blue -Deee=fuchsia",
@@ -100,7 +100,7 @@ public class ProgramPatcherTest extends BasePlatformTestCase {
         params.addEnv("DDD", "red");
         params.addEnv("EEE", "pink");
         // Do the patching
-        new ProgramPatcher().patchJavaParameters(null, configuration, params);
+        new JavaPatcher().patchJavaParameters(null, configuration, params);
         // Check the results
         assertEquals(
                 "-Daaa=green -Dddd=blue -Deee=fuchsia",
