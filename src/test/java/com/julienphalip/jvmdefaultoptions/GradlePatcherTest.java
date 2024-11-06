@@ -9,21 +9,25 @@ import com.intellij.openapi.externalSystem.model.execution.ExternalSystemTaskExe
 import com.intellij.task.ExecuteRunConfigurationTask;
 import com.intellij.task.impl.ExecuteRunConfigurationTaskImpl;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
-import org.jetbrains.plugins.gradle.service.execution.GradleExternalTaskConfigurationType;
-import org.jetbrains.plugins.gradle.service.execution.GradleRunConfiguration;
-import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.jetbrains.plugins.gradle.service.execution.GradleExternalTaskConfigurationType;
+import org.jetbrains.plugins.gradle.service.execution.GradleRunConfiguration;
+import org.junit.Test;
 
 public class GradlePatcherTest extends BasePlatformTestCase {
 
     @Test
     public void testPatch() {
-        GradleExternalTaskConfigurationType configurationType = new GradleExternalTaskConfigurationType();
-        GradleRunConfiguration configuration = new GradleRunConfiguration(getProject(), configurationType.getConfigurationFactories()[0], "MyGradleTask");
+        GradleExternalTaskConfigurationType configurationType =
+                new GradleExternalTaskConfigurationType();
+        GradleRunConfiguration configuration =
+                new GradleRunConfiguration(
+                        getProject(),
+                        configurationType.getConfigurationFactories()[0],
+                        "MyGradleTask");
 
         // Set up global and project settings
         setupSettings();
@@ -39,7 +43,10 @@ public class GradlePatcherTest extends BasePlatformTestCase {
         ExecuteRunConfigurationTask task = new ExecuteRunConfigurationTaskImpl(configuration);
 
         // Do the patching
-        ExecutionEnvironment env = new GradlePatcher().createExecutionEnvironment(getProject(), task, DefaultRunExecutor.getRunExecutorInstance());
+        ExecutionEnvironment env =
+                new GradlePatcher()
+                        .createExecutionEnvironment(
+                                getProject(), task, DefaultRunExecutor.getRunExecutorInstance());
 
         // Get the patched configuration from the ExecutionEnvironment
         GradleRunConfiguration patchedConfiguration = (GradleRunConfiguration) env.getRunProfile();
@@ -57,15 +64,27 @@ public class GradlePatcherTest extends BasePlatformTestCase {
         assertEquals("Environment variables should be updated", expectedEnv, actualEnv);
 
         // Check if script parameters have been modified correctly
-        String expectedScriptParams = "-Daaa=purple -Dbbb=orange -Dccc=turquoise -Dccc=white -Dddd=magenta -Daaa=green -Dddd=blue -Deee=fuchsia";
+        String expectedScriptParams =
+                "-Daaa=purple -Dbbb=orange -Dccc=turquoise -Dccc=white -Dddd=magenta -Daaa=green"
+                        + " -Dddd=blue -Deee=fuchsia";
         String actualScriptParams = patchedSettings.getScriptParameters();
-        assertEquals("Script parameters should be modified", expectedScriptParams, actualScriptParams);
+        assertEquals(
+                "Script parameters should be modified", expectedScriptParams, actualScriptParams);
 
         // Verify other settings
         String expectedExecutionName = externalProjectPath + " [clean build]";
-        assertEquals("ExecutionName should match", expectedExecutionName, patchedConfiguration.getName());
-        assertEquals("ExternalProjectPath should match", externalProjectPath, patchedSettings.getExternalProjectPath());
-        assertEquals("TaskNames should match", Arrays.asList("clean", "build"), patchedSettings.getTaskNames());
+        assertEquals(
+                "ExecutionName should match",
+                expectedExecutionName,
+                patchedConfiguration.getName());
+        assertEquals(
+                "ExternalProjectPath should match",
+                externalProjectPath,
+                patchedSettings.getExternalProjectPath());
+        assertEquals(
+                "TaskNames should match",
+                Arrays.asList("clean", "build"),
+                patchedSettings.getTaskNames());
     }
 
     private void setupSettings() {
@@ -93,8 +112,8 @@ public class GradlePatcherTest extends BasePlatformTestCase {
 
     private static String formatEnvVars(Map<String, String> envVars) {
         return envVars.entrySet().stream()
-            .sorted(Map.Entry.comparingByKey())
-            .map(entry -> entry.getKey() + "=" + entry.getValue())
-            .collect(Collectors.joining(" "));
+                .sorted(Map.Entry.comparingByKey())
+                .map(entry -> entry.getKey() + "=" + entry.getValue())
+                .collect(Collectors.joining(" "));
     }
 }
