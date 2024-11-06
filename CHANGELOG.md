@@ -1,5 +1,7 @@
 ## [Next]
 
+## 1.1.0
+
 Added support for Gradle run configurations
 
 ## 1.0.4
